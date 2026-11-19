@@ -1,0 +1,6 @@
+{
+  "rows": 50,
+  "max_absolute_difference_days": 0.0,
+  "exactly_equal_count": 50,
+  "passed_response_rounding_tolerance": true
+}

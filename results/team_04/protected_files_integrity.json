@@ -1,0 +1,14 @@
+{
+  "data/team_04_train.csv": {
+    "byte_identical": true,
+    "sha256": "04c1d08ab9c846df243baaefdffdce77da9f0e90ca34d707549915f741f28ca5"
+  },
+  "client/bench.py": {
+    "byte_identical": true,
+    "sha256": "4c2171e8a624299d84c5f59e3cf65cc34fcd4cc09738c53fb29c780f23a42d65"
+  },
+  ".devcontainer/devcontainer.json": {
+    "byte_identical": true,
+    "sha256": "160ca956b75a74b00fad9008f1a1fea680c3ac6276cdb5cc726b3245bfbdad19"
+  }
+}

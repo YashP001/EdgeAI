@@ -4,7 +4,7 @@ Read the original README.md first. The assignment asks every member to understan
 
 ## Status
 
-Team 4: EdgeX (Yash Purwar). Repository: https://github.com/YashP001/EdgeAI. All 2,000 rows are retained unchanged, with a deterministic 1,600/400 training/validation split. The full sweep is complete. Selected architecture: 5 -> 64 -> 64 -> 1; validation MAE 3.7005 days; training MAE 3.3013 days. Model artifacts are committed. Local endpoint checks pass. A new Codespace was created at https://redesigned-eureka-x5gq4qgxj4g92px76.github.dev/; its public API is not yet running or verified. See SUBMISSION.md for the remaining startup steps.
+Team 4 - EdgeX (Yash Purwar). The trained model and all measurements are committed to https://github.com/YashP001/EdgeAI. The public endpoint is https://redesigned-eureka-x5gq4qgxj4g92px76-8000.app.github.dev. All 2000 rows are retained unchanged. The selected 5 -> 64 -> 64 -> 1 model has validation MAE 3.7005 days and training MAE 3.3013 days. Public health, model information, five broken readings, timing fields and batch agreement passed. All required local/remote benchmark modes and Swagger checks are complete. See SUBMISSION.md for the two submission links and ASSIGNMENT_RESULTS.md for the full measured results.
 
 ## Run your team's experiments
 
@@ -93,4 +93,6 @@ The plots show a strongly curved voltage relationship and a falling, nonlinear u
 
 Selected model: 4609 parameters, 18436 float32 parameter bytes, 4609 theoretical int8 parameter bytes, 4480 MACs, 512 float32 activation-buffer bytes. The assumed 10 million MAC/s gives an illustrative 0.448 ms compute estimate on a board; no board has been measured.
 
-Windows-local keepalive median round trip: 3.231 ms; inference: 0.329 ms; server total: 0.506 ms; network/framework remainder: 2.703 ms. Thus the LLM's inference forecast was within its guessed range and HTTP/framework overhead dominated even locally. This is not the laptop-to-Codespaces experiment. No-keepalive median round trip: 4.480 ms. 400 singles took 1197.98 ms, versus 7.32 ms for one 400-row batch (about 163.7x faster). These are local measurements under this run's conditions. Remote and inside-Codespace measurements remain pending.
+Windows-local keepalive median round trip: 3.231 ms; inference: 0.329 ms; server total: 0.506 ms; network/framework remainder: 2.703 ms. Thus the LLM's inference forecast was within its guessed range and HTTP/framework overhead dominated even locally. This is not the laptop-to-Codespaces experiment. No-keepalive median round trip: 4.480 ms. 400 singles took 1197.98 ms, versus 7.32 ms for one 400-row batch (about 163.7x faster). These are local measurements under this run's conditions. Remote and inside-Codespace measurements are complete: public keepalive median round trip 53.791 ms, public no-keepalive 507.940 ms, and Codespace localhost keepalive 2.186 ms. The remote 400 singles took 28181.32 ms versus 109.75 ms for a 400-row batch. See ASSIGNMENT_RESULTS.md for all percentiles and the measured timing diagram.
+
+The instructor's original, unchanged trainer was also run separately and obtained 9.12 days validation MAE. The controlled unnormalised sweep run (11.4502 days) uses the updated trainer's schedule and checkpoint selection and should not be confused with that original-starter result.

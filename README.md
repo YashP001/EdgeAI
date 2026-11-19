@@ -1,3 +1,13 @@
+# Team 4 - EdgeX: working submission
+
+**[Public API](https://redesigned-eureka-x5gq4qgxj4g92px76-8000.app.github.dev) | [Try predictions](https://redesigned-eureka-x5gq4qgxj4g92px76-8000.app.github.dev/docs) | [Submission details](SUBMISSION.md) | [Measured assignment results](ASSIGNMENT_RESULTS.md)**
+
+Verified live on 19 November 2026. Model: 5 -> 64 -> 64 -> 1; validation MAE **3.7005 days**. All **2000 rows retained unchanged**, as requested by the team. See the results for the documented exception to the instructor's glitch-removal mission. Keep the Codespace running with port 8000 Public during grading.
+
+The original instructor instructions follow below.
+
+---
+
 # Module 1: How Long Will the Battery Last?
 
 **AI255TBD Edge AI · Module 1 assignment: Neural Networks from Scratch to Deployment**

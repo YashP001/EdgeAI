@@ -1,31 +1,36 @@
-# EdgeX, Team 4: submission and endpoint startup
+# EdgeX, Team 4 - submission details
 
-Repository: https://github.com/YashP001/EdgeAI
+- **Endpoint:** [https://redesigned-eureka-x5gq4qgxj4g92px76-8000.app.github.dev](https://redesigned-eureka-x5gq4qgxj4g92px76-8000.app.github.dev)
+- **Repository:** [YashP001/EdgeAI](https://github.com/YashP001/EdgeAI)
+- [Health](https://redesigned-eureka-x5gq4qgxj4g92px76-8000.app.github.dev/health) | [Model information](https://redesigned-eureka-x5gq4qgxj4g92px76-8000.app.github.dev/model_info) | [Try predictions](https://redesigned-eureka-x5gq4qgxj4g92px76-8000.app.github.dev/docs)
 
-Model: 5 -> 64 -> 64 -> 1; 4609 parameters; validation MAE 3.7005 days. All 2000 original rows retained; no CSV modifications.
+Verified publicly on 19 November 2026 without authentication. Health: status ok, team 4, 4609 parameters, validation MAE 3.7005 days. All 2000 original CSV rows retained unchanged, split 1600/400 for training/validation.
 
-## Remaining step: start the public endpoint
+The public API passed model-count checks, stage timing checks, all five invalid-reading tests, and single/batch consistency. An additional 50-reading check produced exactly identical single and batch answers. Three glitches were also tested through Swagger and returned 422; a valid example returned 200. Both public 200-request benchmark modes, inside-Codespace benchmark modes, the 400-call/batch comparisons, and the final public 50-request benchmark are saved in results/team_04/.
 
-A Codespace was created for this repository:
-https://redesigned-eureka-x5gq4qgxj4g92px76.github.dev/
+Full measurements, plots and explanations: [ASSIGNMENT_RESULTS.md](ASSIGNMENT_RESULTS.md). Code walkthrough: [TEAM_GUIDE.md](TEAM_GUIDE.md).
 
-The public API has NOT yet been started or verified. In that Codespace's terminal, run:
+## Keep the endpoint available for grading
+
+The Codespace is [redesigned eureka](https://redesigned-eureka-x5gq4qgxj4g92px76.github.dev/). Its API is currently running in the Python terminal. Keep it running, keep the Codespace open during the instructor's announced check window, and verify port 8000 is Public. The endpoint will stop when the Codespace stops; it is not permanent hosting.
+
+After a restart, from the repository directory:
 
 ```sh
 git pull --ff-only
 bash tools/start_codespace.sh
 ```
 
-Then select Ports, right-click port 8000, and set Port Visibility to Public. Copy the displayed forwarded address. Confirm that /health returns team 4, params 4609 and val_mae 3.7005. The expected address for this Codespace is https://redesigned-eureka-x5gq4qgxj4g92px76-8000.app.github.dev, but it is not a working submission until those steps and external checks succeed.
-
-From a laptop, run (replace ADDRESS with the verified forwarded URL):
+Then set Ports -> 8000 -> Port Visibility -> Public. If GitHub CLI is installed and authorised, you can instead run this in a second terminal:
 
 ```sh
-python client/verify.py --url ADDRESS --team 4 --output results/team_04/public_endpoint_check.json
-python client/bench.py --url ADDRESS --n 200
-python client/bench.py --url ADDRESS --n 200 --no-keepalive
+gh codespace ports visibility 8000:public -c "$CODESPACE_NAME"
 ```
 
-Also run client/bench.py inside the Codespace against http://localhost:8000. Preserve the resulting CSVs and update the comparison in TEAM_GUIDE.md. Raw local Windows results are already committed; they are not substitutes for remote measurements.
+Before submitting, open /health from outside the Codespace and run:
 
-Submit the repository link and verified public endpoint via the method the instructor announces. Keep the Codespace open, the server running and port 8000 Public during the check window. Recheck visibility after each restart. Deadline: Monday, 23 November 2026.
+```sh
+python client/bench.py --url https://redesigned-eureka-x5gq4qgxj4g92px76-8000.app.github.dev --n 50
+```
+
+Submit the two links above using the instructor's announced channel. Deadline: Monday, 23 November 2026. Review the implementation as a team; role rotation, collaborator invitations and the actual submission are human follow-up actions. The submission channel and check-window time were not supplied.

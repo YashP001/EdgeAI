@@ -1,0 +1,125 @@
+- heading "Doorbell battery API 0.1.0 OAS 3.1" [level=1]:
+  - text: Doorbell battery API
+  - generic: 0.1.0
+  - generic: OAS 3.1
+- link "/openapi.json":
+  - /url: /openapi.json
+  - generic: /openapi.json
+- main:
+  - heading "default Collapse operation" [level=3]:
+    - link "default":
+      - /url: "#/default"
+    - button "Collapse operation" [expanded]:
+  - button "GET /model_info Model Info":
+    - generic: GET
+    - link "/model_info":
+      - /url: "#/default/model_info_model_info_get"
+    - generic: Model Info
+  - generic "Copy path to clipboard":
+    - button "Copy path to clipboard"
+  - button "get /model_info":
+  - button "GET /health Health":
+    - generic: GET
+    - link "/health":
+      - /url: "#/default/health_health_get"
+    - generic: Health
+  - generic "Copy path to clipboard":
+    - button "Copy path to clipboard"
+  - button "get /health":
+  - button "POST /predict Predict" [expanded]:
+    - generic: POST
+    - link "/predict":
+      - /url: "#/default/predict_predict_post"
+    - generic: Predict
+  - generic "Copy path to clipboard":
+    - button "Copy path to clipboard"
+  - button "post /predict" [expanded]:
+  - heading "Parameters" [level=4]
+  - button "Cancel"
+  - button "Reset"
+  - paragraph: No parameters
+  - heading "Request bodyrequired" [level=4]
+  - combobox "Request content type":
+    - option "application/json" [selected]
+  - tablist:
+    - tab "Edit Value" [selected]
+    - tab "Schema"
+  - tabpanel "Edit Value":
+    - textbox: "{ \"battery_v\": 3.86, \"temp_c\": 28, \"rings_per_day\": -1, \"wifi_rssi_dbm\": -66, \"age_months\": 22 }"
+  - button "Execute"
+  - button "Clear"
+  - heading "Responses" [level=4]
+  - heading "Curl" [level=4]
+  - generic "Copy cURL command to clipboard":
+    - button "Copy cURL command to clipboard"
+  - code: "curl -X 'POST' \\ 'https://redesigned-eureka-x5gq4qgxj4g92px76-8000.app.github.dev/predict' \\ -H 'accept: */*' \\ -H 'Content-Type: application/json' \\ -d '{ \"battery_v\": 3.86, \"temp_c\": 28, \"rings_per_day\": -1, \"wifi_rssi_dbm\": -66, \"age_months\": 22 }'"
+  - heading "Request URL" [level=4]
+  - generic: https://redesigned-eureka-x5gq4qgxj4g92px76-8000.app.github.dev/predict
+  - heading "Server response" [level=4]
+  - table:
+    - rowgroup:
+      - row "Code Details":
+        - cell "Code"
+        - cell "Details"
+    - rowgroup:
+      - row:
+        - cell "422 Undocumented":
+          - text: "422"
+          - generic: Undocumented
+        - cell:
+          - paragraph: "Error: response status is 422"
+          - heading "Response body" [level=5]
+          - generic "Copy code to clipboard":
+            - button "Copy code to clipboard"
+          - button "Download"
+          - code: "{ \"error\": \"bad reading\", \"detail\": [ { \"type\": \"greater_than_equal\", \"loc\": [ \"rings_per_day\" ], \"msg\": \"Input should be greater than or equal to 0\", \"url\": \"https://errors.pydantic.dev/2.14/v/greater_than_equal\" } ] }"
+          - heading "Response headers" [level=5]
+          - generic: "content-length: 201"
+          - generic: "content-type: application/json"
+          - generic: "date: Thu,19 Nov 2026 12:37:44 GMT"
+          - generic: "ratelimit-limit: HttpRequestRatePerPort:1500/m,ClientConnectionsPerPort: max 1000"
+          - generic: "ratelimit-remaining: HttpRequestRatePerPort:1499,ClientConnectionsPerPort:992"
+          - generic: "ratelimit-reset: HttpRequestRatePerPort:3s"
+          - generic: "referrer-policy: same-origin"
+          - generic: "strict-transport-security: max-age=31536000; includeSubDomains"
+          - generic: "vssaas-request-id: e056466c-c71e-46e4-9071-2bc22d5f469c"
+          - generic: "x-content-type-options: nosniff"
+          - generic: "x-ms-ratelimit-limit: 1500"
+          - generic: "x-ms-ratelimit-remaining: 1496"
+          - generic: "x-ms-ratelimit-reset: 0"
+          - generic: "x-ms-ratelimit-used: 4"
+          - generic: "x-report-abuse: https://msrc.microsoft.com/report/abuse"
+          - generic: "x-robots-tag: noindex,nofollow"
+          - generic: "x-served-by: tunnels-prod-rel-inc1-v3-cluster"
+  - heading "Responses" [level=4]
+  - region:
+    - rowgroup:
+      - row "Code Description Links":
+        - cell "Code"
+        - cell "Description"
+        - cell "Links"
+    - rowgroup:
+      - row "200 Successful Response Media type application/json Controls Accept header. Example Value No links":
+        - cell "200"
+        - cell "Successful Response Media type application/json Controls Accept header. Example Value":
+          - paragraph: Successful Response
+          - generic: Media type
+          - combobox "Media Type":
+            - option "application/json" [selected]
+          - text: Controls
+          - code: Accept
+          - text: header.
+          - tablist:
+            - tab "Example Value" [selected]
+            - tab "Schema"
+          - tabpanel "Example Value":
+            - code: "\"string\""
+        - cell "No links"
+  - button "POST /predict_batch Predict Batch":
+    - generic: POST
+    - link "/predict_batch":
+      - /url: "#/default/predict_batch_predict_batch_post"
+    - generic: Predict Batch
+  - generic "Copy path to clipboard":
+    - button "Copy path to clipboard"
+  - button "post /predict_batch":

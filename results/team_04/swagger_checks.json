@@ -1,0 +1,24 @@
+{
+  "url": "https://redesigned-eureka-x5gq4qgxj4g92px76-8000.app.github.dev/docs",
+  "checks": [
+    {
+      "field": "battery_v",
+      "value": -1,
+      "status": 422
+    },
+    {
+      "field": "temp_c",
+      "value": -273,
+      "status": 422
+    },
+    {
+      "field": "rings_per_day",
+      "value": -1,
+      "status": 422
+    },
+    {
+      "reading": "valid example",
+      "status": 200
+    }
+  ]
+}
