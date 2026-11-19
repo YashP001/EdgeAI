@@ -1,0 +1,6 @@
+{
+  "mean_validation_mae": 42.68238830566406,
+  "linear_validation_mae": 25.868358536497375,
+  "train_rows": 1600,
+  "validation_rows": 400
+}

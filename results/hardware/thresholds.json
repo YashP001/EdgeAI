@@ -1,0 +1,8 @@
+{
+  "budget_bytes": 307200,
+  "interpretation": "300 KiB; weights and biases only",
+  "first_failing_width_f32": 274,
+  "first_failing_width_int8": 551,
+  "assumed_macs_per_second": 10000000,
+  "estimate_is_not_a_measurement": true
+}

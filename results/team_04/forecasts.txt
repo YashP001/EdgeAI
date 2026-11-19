@@ -1,0 +1,7 @@
+Pre-experiment LLM estimates, 19 November 2026; these are NOT student predictions or measurements:
+Mean baseline validation MAE: approximately 40 days.
+Linear baseline validation MAE: approximately 15 days.
+Normalised neural network validation MAE: approximately 5-10 days with all rows retained.
+Expected useful size: two hidden layers of 16-64 units.
+Expected local inference: under 1 ms after warmup; remote request: 50-300 ms.
+Unusual readings are retained at the team's request; they may reduce accuracy.

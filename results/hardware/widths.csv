@@ -1,0 +1,6 @@
+width,total_params,total_bytes_f32,total_bytes_int8,total_macs,fits_300kb_sram_f32,fits_300kb_sram_int8,activation_bytes_f32,activation_bytes_int8,fits_8mb_psram_f32,fits_8mb_psram_int8,estimated_compute_ms
+32,1281,5124,1281,1216,True,True,256,64,True,True,0.1216
+128,17409,69636,17409,17152,True,True,1024,256,True,True,1.7152
+256,67585,270340,67585,67072,True,True,2048,512,True,True,6.7072
+512,266241,1064964,266241,265216,False,True,4096,1024,True,True,26.5216
+2048,4210689,16842756,4210689,4206592,False,False,16384,4096,False,True,420.6592
