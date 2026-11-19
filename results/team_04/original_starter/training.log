@@ -1,0 +1,10 @@
+2000 rows, 0 glitch rows dropped
+baseline (predict the mean): 42.68 days
+  epoch    0  val MAE 44.98 days
+  epoch  300  val MAE 14.61 days
+  epoch  600  val MAE 12.98 days
+  epoch  900  val MAE 12.39 days
+  epoch 1200  val MAE 11.32 days
+  epoch 1499  val MAE 9.12 days
+network (32, 32):            9.12 days
+saved model/model.pt and model/config.json
