@@ -1,0 +1,141 @@
+{
+  "rows_original": 2000,
+  "rows_removed": 0,
+  "rows_retained": 2000,
+  "rows_flagged_but_retained": 24,
+  "policy": "Keep every row unchanged, including flagged readings, as requested by the team.",
+  "rule_counts_overlap": {
+    "nonfinite_or_missing": 0,
+    "battery_v_out_of_range": 0,
+    "temp_c_out_of_range": 5,
+    "rings_per_day_out_of_range": 0,
+    "wifi_rssi_dbm_out_of_range": 0,
+    "age_months_out_of_range": 0,
+    "zero_battery_sensor_sentinel": 10,
+    "zero_rssi_sensor_sentinel": 9,
+    "negative_days_left": 0
+  },
+  "limits": {
+    "battery_v": [
+      0.0,
+      5.0
+    ],
+    "temp_c": [
+      -40.0,
+      85.0
+    ],
+    "rings_per_day": [
+      0.0,
+      86400.0
+    ],
+    "wifi_rssi_dbm": [
+      -127.0,
+      0.0
+    ],
+    "age_months": [
+      0.0,
+      600.0
+    ]
+  },
+  "data_sha256": "04c1d08ab9c846df243baaefdffdce77da9f0e90ca34d707549915f741f28ca5"
+}
+Baselines: {'mean_validation_mae': 42.68238830566406, 'linear_validation_mae': 25.868358536497375, 'train_rows': 1600, 'validation_rows': 400}
+hidden=(32, 32) normalise=False epoch=1: train=44.325 val=44.975
+hidden=(32, 32) normalise=False epoch=300: train=17.146 val=17.856
+hidden=(32, 32) normalise=False epoch=600: train=15.483 val=16.794
+hidden=(32, 32) normalise=False epoch=900: train=12.316 val=12.791
+hidden=(32, 32) normalise=False epoch=1200: train=10.616 val=11.596
+hidden=(32, 32) normalise=False epoch=1500: train=10.445 val=11.672
+hidden=(4,) normalise=True epoch=1: train=63.694 val=63.163
+hidden=(4,) normalise=True epoch=300: train=11.998 val=11.781
+hidden=(4,) normalise=True epoch=600: train=10.660 val=10.619
+hidden=(4,) normalise=True epoch=900: train=10.727 val=10.900
+hidden=(4,) normalise=True epoch=1200: train=10.758 val=10.923
+hidden=(4,) normalise=True epoch=1500: train=10.776 val=10.933
+hidden=(4, 4) normalise=True epoch=1: train=63.697 val=63.163
+hidden=(4, 4) normalise=True epoch=300: train=8.978 val=8.886
+hidden=(4, 4) normalise=True epoch=600: train=8.886 val=8.610
+hidden=(4, 4) normalise=True epoch=900: train=8.645 val=8.543
+hidden=(4, 4) normalise=True epoch=1200: train=8.587 val=8.473
+hidden=(4, 4) normalise=True epoch=1500: train=8.531 val=8.413
+hidden=(8,) normalise=True epoch=1: train=63.399 val=62.865
+hidden=(8,) normalise=True epoch=300: train=13.694 val=12.547
+hidden=(8,) normalise=True epoch=600: train=13.484 val=12.367
+hidden=(8,) normalise=True epoch=900: train=13.537 val=12.450
+hidden=(8,) normalise=True epoch=1200: train=13.556 val=12.497
+hidden=(8,) normalise=True epoch=1500: train=13.548 val=12.513
+hidden=(8, 8) normalise=True epoch=1: train=63.694 val=63.159
+hidden=(8, 8) normalise=True epoch=300: train=6.223 val=6.155
+hidden=(8, 8) normalise=True epoch=600: train=5.828 val=5.857
+hidden=(8, 8) normalise=True epoch=900: train=5.694 val=6.012
+hidden=(8, 8) normalise=True epoch=1200: train=5.358 val=5.906
+hidden=(8, 8) normalise=True epoch=1500: train=5.211 val=5.738
+hidden=(16,) normalise=True epoch=1: train=63.652 val=63.118
+hidden=(16,) normalise=True epoch=300: train=13.516 val=12.408
+hidden=(16,) normalise=True epoch=600: train=13.350 val=12.416
+hidden=(16,) normalise=True epoch=900: train=13.286 val=12.453
+hidden=(16,) normalise=True epoch=1200: train=13.299 val=12.490
+hidden=(16,) normalise=True epoch=1500: train=13.286 val=12.512
+hidden=(16, 16) normalise=True epoch=1: train=63.209 val=62.680
+hidden=(16, 16) normalise=True epoch=300: train=6.945 val=6.890
+hidden=(16, 16) normalise=True epoch=600: train=4.913 val=5.485
+hidden=(16, 16) normalise=True epoch=900: train=4.233 val=4.788
+hidden=(16, 16) normalise=True epoch=1200: train=4.179 val=4.760
+hidden=(16, 16) normalise=True epoch=1500: train=4.169 val=4.734
+hidden=(32,) normalise=True epoch=1: train=63.456 val=62.927
+hidden=(32,) normalise=True epoch=300: train=13.694 val=12.738
+hidden=(32,) normalise=True epoch=600: train=13.373 val=12.508
+hidden=(32,) normalise=True epoch=900: train=13.315 val=12.500
+hidden=(32,) normalise=True epoch=1200: train=13.306 val=12.494
+hidden=(32,) normalise=True epoch=1500: train=13.311 val=12.500
+hidden=(32, 32) normalise=True epoch=1: train=62.705 val=62.179
+hidden=(32, 32) normalise=True epoch=300: train=3.943 val=4.028
+hidden=(32, 32) normalise=True epoch=600: train=3.686 val=3.858
+hidden=(32, 32) normalise=True epoch=900: train=3.544 val=3.973
+hidden=(32, 32) normalise=True epoch=1200: train=3.429 val=3.869
+hidden=(32, 32) normalise=True epoch=1500: train=3.393 val=3.806
+hidden=(64,) normalise=True epoch=1: train=62.826 val=62.298
+hidden=(64,) normalise=True epoch=300: train=13.423 val=12.509
+hidden=(64,) normalise=True epoch=600: train=13.360 val=12.576
+hidden=(64,) normalise=True epoch=900: train=13.284 val=12.577
+hidden=(64,) normalise=True epoch=1200: train=13.273 val=12.573
+hidden=(64,) normalise=True epoch=1500: train=13.261 val=12.582
+hidden=(64, 64) normalise=True epoch=1: train=61.595 val=61.159
+hidden=(64, 64) normalise=True epoch=300: train=3.382 val=3.756
+hidden=(64, 64) normalise=True epoch=600: train=3.065 val=3.790
+hidden=(64, 64) normalise=True epoch=900: train=2.915 val=3.931
+hidden=(64, 64) normalise=True epoch=1200: train=2.893 val=4.017
+hidden=(64, 64) normalise=True epoch=1500: train=2.808 val=3.995
+Saved model: {
+  "team": 4,
+  "hidden": [
+    64,
+    64
+  ],
+  "mu": [
+    3.7500967979431152,
+    27.3721866607666,
+    7.964375019073486,
+    -66.12437438964844,
+    18.084999084472656
+  ],
+  "sd": [
+    0.38425931334495544,
+    11.167695045471191,
+    5.73099946975708,
+    13.356792449951172,
+    10.622218132019043
+  ],
+  "features": [
+    "battery_v",
+    "temp_c",
+    "rings_per_day",
+    "wifi_rssi_dbm",
+    "age_months"
+  ],
+  "val_mae": 3.7005,
+  "train_mae": 3.3013129234313965,
+  "seed": 0,
+  "best_epoch": 334,
+  "data_sha256": "04c1d08ab9c846df243baaefdffdce77da9f0e90ca34d707549915f741f28ca5"
+}

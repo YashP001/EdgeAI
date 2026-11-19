@@ -4,7 +4,7 @@ Read the original README.md first. The assignment asks every member to understan
 
 ## Status
 
-Team 4: EdgeX (Yash Purwar). Repository: https://github.com/YashP001/EdgeAI. All 2,000 rows are retained unchanged, with a deterministic 1,600/400 training/validation split. The architecture sweep is running; deployment and final metrics will be recorded after verification.
+Team 4: EdgeX (Yash Purwar). Repository: https://github.com/YashP001/EdgeAI. All 2,000 rows are retained unchanged, with a deterministic 1,600/400 training/validation split. The full sweep is complete. Selected architecture: 5 -> 64 -> 64 -> 1; validation MAE 3.7005 days; training MAE 3.3013 days. Model artifacts are committed. Local endpoint checks pass. A new Codespace was created at https://redesigned-eureka-x5gq4qgxj4g92px76.github.dev/; its public API is not yet running or verified. See SUBMISSION.md for the remaining startup steps.
 
 ## Run your team's experiments
 
@@ -60,7 +60,7 @@ An on-device model is a reasonable production direction if measured accuracy and
 
 ## Verify locally and remotely
 
-Development contract checks use a temporary random model, not a trained submission model:
+Development contract checks use a temporary random model and synthetic training data. The actual trained model also passed client/verify.py against a local server:
 
 ```sh
 pip install -r requirements-dev.txt
@@ -84,3 +84,13 @@ Connection reuse can avoid connection setup costs, especially TLS for a remote e
 Create a GitHub repository for your team, upload this directory including hidden .devcontainer and model/, and invite the other members. Exclude .venv and __pycache__. Open a Codespace on the repository, install requirements, then run uvicorn. Set port 8000 Public and test /health, /model_info and /docs from outside the Codespace. Keep the Codespace and server running during the instructor's check window. Restarting a Codespace requires checking port visibility again.
 
 The two submission items are the repository link and public endpoint address. The deadline is Monday, 23 November 2026. The instructor has not yet provided the submission channel or check-window time. Do not treat a local URL, a random-model contract test, or a saved screenshot as a deployed endpoint.
+
+## Measured Team 4 findings
+
+Mean-baseline MAE: 42.6824 days. Linear MAE: 25.8684 days. Unnormalised 32,32 network: 11.4502 days; normalised 32,32 network: 3.7864 days. Two hidden layers outperform one in this sweep. Selected 64,64 checkpoint: epoch 334; training MAE 3.3013, validation MAE 3.7005 days. Later epochs reduce training error while validation error rises, which is evidence of overfitting; restoring the earlier checkpoint limits it. A provisional hidden-test forecast is about 4 days MAE, with considerable uncertainty because validation selected the checkpoint and architecture.
+
+The plots show a strongly curved voltage relationship and a falling, nonlinear upper envelope with ringing frequency. Temperature and RSSI interact with the other inputs; their marginal scatter does not isolate a causal effect. Zero-voltage, zero-RSSI, and -127 C sentinel readings remain in training as requested (24 flagged rows total).
+
+Selected model: 4609 parameters, 18436 float32 parameter bytes, 4609 theoretical int8 parameter bytes, 4480 MACs, 512 float32 activation-buffer bytes. The assumed 10 million MAC/s gives an illustrative 0.448 ms compute estimate on a board; no board has been measured.
+
+Windows-local keepalive median round trip: 3.231 ms; inference: 0.329 ms; server total: 0.506 ms; network/framework remainder: 2.703 ms. Thus the LLM's inference forecast was within its guessed range and HTTP/framework overhead dominated even locally. This is not the laptop-to-Codespaces experiment. No-keepalive median round trip: 4.480 ms. 400 singles took 1197.98 ms, versus 7.32 ms for one 400-row batch (about 163.7x faster). These are local measurements under this run's conditions. Remote and inside-Codespace measurements remain pending.

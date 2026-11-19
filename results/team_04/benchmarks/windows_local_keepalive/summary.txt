@@ -1,0 +1,12 @@
+health: {'status': 'ok', 'team': 4, 'params': 4609, 'val_mae': 3.7005}
+
+first request: 5.1 ms round trip
+stage                       p50 ms    p95 ms    p99 ms   (requests 2..200)
+round_trip                   3.231     4.129     4.751
+parse                        0.067     0.110     0.212
+normalise                    0.054     0.067     0.115
+inference                    0.329     0.487     0.546
+build                        0.031     0.039     0.063
+server_total                 0.506     0.705     0.832
+network_and_framework        2.703     3.504     4.102
+saved bench_20261119_174905.csv
