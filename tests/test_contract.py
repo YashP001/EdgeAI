@@ -63,6 +63,8 @@ class ContractTests(unittest.TestCase):
         np.testing.assert_allclose(batch.json()["days_left"], single, atol=.011, rtol=0)
 
     def test_glitches_for_all_five_fields(self):
+        for field in ("battery_v", "wifi_rssi_dbm"):
+            self.assertEqual(client.post("/predict", json=dict(READING, **{field: 0})).status_code, 422)
         for name, bad in {"battery_v": -1, "temp_c": -273, "rings_per_day": -1,
                           "wifi_rssi_dbm": 10, "age_months": -1}.items():
             with self.subTest(field=name):

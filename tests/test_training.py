@@ -1,13 +1,44 @@
 """Synthetic learning check; does not load any team's data."""
 import unittest
+from pathlib import Path
+import tempfile
+from unittest.mock import patch
 
 import numpy as np
+import pandas as pd
 import torch
 
-from train import fit
+from train import fit, prepare
+from app.model import FEATURES
 
 
 class TrainingTests(unittest.TestCase):
+    def test_preparation_retains_every_row_and_original_bytes(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / "data").mkdir()
+            output = root / "results"
+            output.mkdir()
+            frame = pd.DataFrame({
+                "battery_v": [3.8] * 25, "temp_c": [25.] * 25,
+                "rings_per_day": [5.] * 25, "wifi_rssi_dbm": [-60.] * 25,
+                "age_months": [12.] * 25, "days_left": np.arange(25, dtype=float),
+            })
+            frame.loc[0, "battery_v"] = 0
+            frame.loc[1, "temp_c"] = -127
+            frame.loc[2, "wifi_rssi_dbm"] = 0
+            path = root / "data" / "team_04_train.csv"
+            frame.to_csv(path, index=False)
+            original_bytes = path.read_bytes()
+            with patch("train.ROOT", root):
+                X, y, Xv, yv, audit = prepare(4, output)
+            self.assertEqual(len(X) + len(Xv), 25)
+            self.assertEqual(audit["rows_removed"], 0)
+            self.assertEqual(audit["rows_flagged_but_retained"], 3)
+            self.assertEqual(path.read_bytes(), original_bytes)
+            # Every original target identifies a row and survives the split.
+            np.testing.assert_array_equal(np.sort(np.concatenate([y, yv])), np.arange(25))
+
     def test_learning_and_training_only_normalisation(self):
         torch.set_num_threads(1)
         rng = np.random.default_rng(42)

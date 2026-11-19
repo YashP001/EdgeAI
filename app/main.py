@@ -91,11 +91,21 @@ async def run(request: Request, schema):
     return body
 
 
-@app.post("/predict")
+@app.post("/predict", openapi_extra={"requestBody": {
+    "required": True,
+    "content": {"application/json": {"schema": Reading.model_json_schema()}},
+}})
 async def predict(request: Request):
     return await run(request, Reading)
 
 
-@app.post("/predict_batch")
+@app.post("/predict_batch", openapi_extra={"requestBody": {
+    "required": True,
+    "content": {"application/json": {"schema": {
+        "type": "object", "required": ["rows"], "additionalProperties": False,
+        "properties": {"rows": {"type": "array", "minItems": 1,
+                                "maxItems": 10000, "items": Reading.model_json_schema()}},
+    }}},
+}})
 async def predict_batch(request: Request):
     return await run(request, Batch)
