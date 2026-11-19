@@ -1,0 +1,7 @@
+{
+  "platform": "Linux-6.8.0-1070-azure-x86_64-with-glibc2.41",
+  "python": "3.11.18",
+  "url": "http://localhost:8000",
+  "benchmark_requests_per_mode": 200,
+  "complete": true
+}
