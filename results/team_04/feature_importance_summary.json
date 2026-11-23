@@ -1,0 +1,43 @@
+{
+    "method": "Permutation Feature Importance",
+    "baseline_validation_mae": 3.7005374431610107,
+    "metric": "Increase in validation MAE (days)",
+    "repeats_per_feature": 30,
+    "ranking": [
+        {
+            "feature": "battery_v",
+            "baseline_mae": 3.7005374431610107,
+            "importance_mean": 43.58480852444966,
+            "importance_std": 1.9353976401536104,
+            "repeats": 30
+        },
+        {
+            "feature": "rings_per_day",
+            "baseline_mae": 3.7005374431610107,
+            "importance_mean": 12.112927770614624,
+            "importance_std": 0.538638108383493,
+            "repeats": 30
+        },
+        {
+            "feature": "wifi_rssi_dbm",
+            "baseline_mae": 3.7005374431610107,
+            "importance_mean": 10.937393363316854,
+            "importance_std": 0.4931107319921211,
+            "repeats": 30
+        },
+        {
+            "feature": "age_months",
+            "baseline_mae": 3.7005374431610107,
+            "importance_mean": 7.260930585861206,
+            "importance_std": 0.4883070568836671,
+            "repeats": 30
+        },
+        {
+            "feature": "temp_c",
+            "baseline_mae": 3.7005374431610107,
+            "importance_mean": 4.879117409388225,
+            "importance_std": 0.28073260228531444,
+            "repeats": 30
+        }
+    ]
+}
